@@ -1,7 +1,20 @@
+
+/* Quelle: FontAwesome*/
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*styles*/
 body {
-    overflow-x: scroll;
-    font-family: sans-serif;
-    background-image: url("/img/01.jpg");
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #222;
+    font-weight:400;
+    margin: 0;
 }
 
 h1,
@@ -15,56 +28,312 @@ h6 {
     font-weight: 700;
 }
 
+p {
+    /*margin: 0!important;*/
+}
+
 /* Section */
 section {
     padding: 100px 0;
     width: 100%;
-}
-
-#names {
-    background-color: rgba(8, 29, 221, .25);
-    position: relative;
-    clip-path: inset(0 50% 0 0);
-    -webkit-clip-path: inset(0 50% 0 0);
-}
-
-#images {
-    background-color: rgba(221, 8, 8, .25);
-    top: 0px;
+    height: 100%;
     position: absolute;
-    clip-path: inset(0 0 0 50%);
-    -webkit-clip-path: inset(0 0 0 50%);
 }
 
-
-.content-type {
-    min-height: 60px;
-    max-height: 60px;
-    margin-bottom: 10px!important;
-    margin-top: 10px!important;
-    border: 1px solid black;
+.section-avatar {
+    padding-top: 14em ;
 }
 
-.content-name {
-    padding-top: .25em;
-    font-size: 2em;
-    font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+/*TODO: Set fullscreen via JS*/
+.fullscreen {
+    width: 100%!important;
+    height: 100%!important;
+    margin: 0!important;
+    padding: 0!important;
 }
 
-.content-image {
+/* left section */
+.screen-left {
+    background-color: #1f1f1f;
+    color: #f5f5f5;
 }
 
-.draggie {
+/* right section */
+.screen-right {
+    background-color: #f5f5f5;
+    color: #1f1f1f;
+}
+
+/* draggable */
+.draggable {
+    background: rgba(255, 255, 255, 0.1);
+    position: absolute;
+
+    /*animation*/
+    -webkit-transition-property: background;
+    transition-property: background;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+.draggable-horizontal {
     width: 30px;
+    height: 100%;
+    z-index: 550;
+    cursor: col-resize;
+}
+
+.draggable-vertical {
+    width: 100%;
     height: 30px;
-    background: #FA0;
-    border-radius: 15px;
-    z-index: 4;
+    z-index: 500;
+    cursor: row-resize;
+}
+
+.draggable:hover,
+.draggable:active,
+.draggable:focus{
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.draggable-bottom,
+.draggable-top {
+    background: rgba(24, 166, 140, .8);
+    color: rgba(24, 166, 140, .8);
+}
+
+/* Slider Icon Top */
+@-webkit-keyframes slideInTop { from { top: -1em; opacity: 0; } to { top:.25em;  opacity: 1;  } }
+@-moz-keyframes slideInTop { from { top:-1em; opacity: 0; } to { top:.25em;  opacity: 1; } }
+@keyframes slideIdTop { from { top:-1em; opacity: 0; } to { top:.25em;  opacity: 1;} }
+
+.draggable-top::before {
+    font-family: FontAwesome;
+    font-size: 3em;
     position: absolute;
-    top: 5em;
+    left: 50%;
+    content: "\f078";
+    display: inline-block;
+    top:-1em;
+    opacity: 0;
+    -webkit-animation: slideInTop ease-in 1;
+    -moz-animation: slideInTop ease-in 1;
+    animation: slideInTop ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
 }
-.draggie:hover,
-.draggie:active{
-    cursor: move;
-    background: #0AF;
+
+/* Slider Icon bottom */
+@-webkit-keyframes slideInBottom { from { bottom: -1em; opacity: 0; } to { bottom:.35em;  opacity: 1;  } }
+@-moz-keyframes slideInBottom { from { bottom:-1em; opacity: 0; } to { bottom:.35em;  opacity: 1; } }
+@keyframes slideInBottom { from { bottom:-1em; opacity: 0; } to { bottom:.35em;  opacity: 1;} }
+
+.draggable-bottom::before {
+    font-family: FontAwesome;
+    font-size: 3em;
+    position: absolute;
+    left: 50%;
+    content: "\f077";
+    display: inline-block;
+    bottom: -1em;
+    opacity: 0;
+    -webkit-animation: slideInBottom ease-in 1;
+    -moz-animation: slideInBottom ease-in 1;
+    animation: slideInBottom ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
 }
+
+
+.draggable-right{
+    background: rgba(254, 254, 254, .8) ;
+    color: rgba(254, 254, 254, .8) ;
+}
+
+/* Slider Icon Right */
+@-webkit-keyframes slideInRight { from { right: -1em; opacity: 0; } to { right:.75em;  opacity: 1;  } }
+@-moz-keyframes slideInRight { from { right: -1em; opacity: 0; } to { right:.75em;  opacity: 1;  } }
+@keyframes slideInRight { from { right: -1em; opacity: 0; } to { right:.75em;  opacity: 1;  } }
+
+.draggable-right::before {
+    font-family: FontAwesome;
+    font-size: 3em;
+    position: absolute;
+    top: 50%;
+    content: "\f053";
+    display: inline-block;
+    right: -1em;
+    opacity: 0;
+    -webkit-animation: slideInRight ease-in 1;
+    -moz-animation: slideInRight ease-in 1;
+    animation: slideInRight ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
+}
+
+
+.draggable-left {
+    background: rgba(31,31,31, .8);
+    color: rgba(31,31,31, .8);
+}
+
+/* Slider Icon left */
+@-webkit-keyframes slideInLeft { from { left: -1em; opacity: 0; } to { left:.75em;  opacity: 1;  } }
+@-moz-keyframes slideInLeft { from { left: -1em; opacity: 0; } to { left:.75em;  opacity: 1;  } }
+@keyframes slideInLeft { from { left: -1em; opacity: 0; } to { left:.75em;  opacity: 1;  } }
+
+.draggable-left::before {
+    font-family: FontAwesome;
+    font-size: 3em;
+    position: absolute;
+    top: 50%;
+    content: "\f054";
+    display: inline-block;
+    right: -1em;
+    opacity: 0;
+    -webkit-animation: slideInLeft ease-in 1;
+    -moz-animation: slideInLeft ease-in 1;
+    animation: slideInLeft ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
+}
+/* navigation */
+.navigation {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+.position {
+    position: relative;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background: rgba(200,200,200,.3);
+
+    -webkit-transition-property: background;
+    transition-property: background;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+
+.active-slide {
+    background: rgba(200,200,200,.9);
+}
+
+/*home icon*/
+
+.icon-rotate{
+    -webkit-transform: rotate(-90deg);
+}
+
+.icon-home{
+    opacity: 0.7;
+    font-size: 2em;
+    position: absolute !important;
+    top: 25px !important;
+    left: 60px !important;
+    z-index: 1000;
+
+
+    /* test anim */
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+.icon-left {
+    color: #f5f5f5;
+}
+
+.icon-right {
+    color: #1f1f1f;
+}
+
+/*artist*/
+
+.avatar{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.avatar-header{
+    letter-spacing: 0.5em;
+    font-weight: normal;
+}
+
+.quote {
+    quotes: "»" "«";
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+
+.quote:before,
+.quote:after{
+    font: 1.5em/150% 'Rajdhani', sans-serif;
+    color: lightgrey;
+}
+
+.quote:before{
+    content: open-quote;
+}
+
+.quote:after{
+    content: close-quote;
+}
+
+/* täääst */
+
+/*
+.first {
+    background: red!important;
+}
+
+.second  {
+    background: orange!important;;
+}
+
+.third {
+    background: green!important;;
+}
+
+.fourth {
+    background: blue!important;;
+}
+*/
+

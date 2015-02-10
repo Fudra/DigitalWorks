@@ -559,6 +559,11 @@ var addHTML = (function () {
             '<div class="position two"></div>' +
             '<div class="position three"></div>' +
             '<div class="position four"></div>' +
+            '<a href="index.html"><div class="homelink"></div></a>'+
+            '<div class="title">' +
+            '<h2 class="header artist-name">Franz Mattuschka</h2>' +
+            '<h3 class="header artist-title">Prozesse</h3>' +
+            '</div>' +
             '</nav>');
     }
 
@@ -637,11 +642,8 @@ $(window).ready(function () {
     if (setting.showBeacon)
         addHTML.addBeacon();
 
-    if (setting.position)
-        addHTML.addPosition();
-
     if (setting.addHome)
-        addHTML.addHomeIcon();
+        addHTML.addPosition();
 
     if (setting.slideVertical)
         addHTML.addVertical();

@@ -1,12 +1,15 @@
+/**
+ * Created by Philipp Wahle on 10.02.2015.
+ */
 
 var setting  = (function() {
 
     return {
 
         /**
-         *  fügt die Position und das HomeIcon zu der aktuellen Slides hinzu ( unten rechts )
+         *  fügt die Position des aktuellen Slides hinzu ( unten rechts )
          */
-        addHome: true,
+        addHome: false,
 
         /**
          * fügt den vertikalen Slide Balken hinzu
@@ -16,7 +19,7 @@ var setting  = (function() {
         /**
          * fügt den horizontalen Slide Balken hinzu
          */
-        slideHorizontal: true,
+        slideHorizontal: false,
 
         /**
          *  gibt die position an, welcher der 4 Bildschirme gesperrt sein soll
@@ -36,7 +39,7 @@ var setting  = (function() {
          * Zeigt einen Beacon und beginnt mit der Anfagsanimation
          * TODO: Anfangsanimation noch nicht implementiert
          */
-        showBeacon: false,
+        showBeacon: true,
 
         /**
          * Blendet den Beacon nach x ms ein
@@ -61,7 +64,7 @@ var setting  = (function() {
         fadeOutTime: "slow",
 
         /**
-          Ein/Ausblendzeit des Sliders
+         Ein/Ausblendzeit des Sliders
          */
         toggleSliderTime: "slow",
 

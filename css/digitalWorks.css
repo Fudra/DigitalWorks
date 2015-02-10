@@ -1,4 +1,3 @@
-
 /* Quelle: FontAwesome*/
 @font-face {
     font-family: 'FontAwesome';
@@ -11,9 +10,9 @@
 body {
     overflow-x: hidden;
     overflow-y: hidden;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Rajdhani', Arial, sans-serif;
     background-color: #222;
-    font-weight:400;
+    font-weight: 300;
     margin: 0;
 }
 
@@ -24,8 +23,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: 'Droid Sans', Arial, sans-serif;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 p {
@@ -41,15 +39,14 @@ section {
 }
 
 .section-avatar {
-    padding-top: 14em ;
+    padding-top: 14em;
 }
 
-/*TODO: Set fullscreen via JS*/
 .fullscreen {
-    width: 100%!important;
-    height: 100%!important;
-    margin: 0!important;
-    padding: 0!important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* left section */
@@ -66,7 +63,7 @@ section {
 
 /* draggable */
 .draggable {
-    background: rgba(255, 255, 255, 0.1);
+   background: rgba(200, 200, 200, 0.1);
     position: absolute;
 
     /*animation*/
@@ -79,7 +76,7 @@ section {
 }
 
 .draggable-horizontal {
-    width: 30px;
+    width: 10px;
     height: 100%;
     z-index: 550;
     cursor: col-resize;
@@ -87,36 +84,65 @@ section {
 
 .draggable-vertical {
     width: 100%;
-    height: 30px;
+    height: 10px;
     z-index: 500;
     cursor: row-resize;
 }
 
 .draggable:hover,
 .draggable:active,
-.draggable:focus{
-    background: rgba(255, 255, 255, 0.5);
+.draggable:focus {
+    background: rgba(200, 200, 200, 0.5);
 }
 
 .draggable-bottom,
 .draggable-top {
-    background: rgba(24, 166, 140, .8);
-    color: rgba(24, 166, 140, .8);
+    background: rgb(24, 166, 140);
+    color: rgba(24, 166, 140, .7);
 }
 
 /* Slider Icon Top */
-@-webkit-keyframes slideInTop { from { top: -1em; opacity: 0; } to { top:.25em;  opacity: 1;  } }
-@-moz-keyframes slideInTop { from { top:-1em; opacity: 0; } to { top:.25em;  opacity: 1; } }
-@keyframes slideIdTop { from { top:-1em; opacity: 0; } to { top:.25em;  opacity: 1;} }
+@-webkit-keyframes slideInTop {
+    from {
+        top: -1em;
+        opacity: 0;
+    }
+    to {
+        top: .1em;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInTop {
+    from {
+        top: -1em;
+        opacity: 0;
+    }
+    to {
+        top: .1em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideIdTop {
+    from {
+        top: -1em;
+        opacity: 0;
+    }
+    to {
+        top: .1em;
+        opacity: 1;
+    }
+}
 
 .draggable-top::before {
     font-family: FontAwesome;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     left: 50%;
     content: "\f078";
     display: inline-block;
-    top:-1em;
+    top: -1em;
     opacity: 0;
     -webkit-animation: slideInTop ease-in 1;
     -moz-animation: slideInTop ease-in 1;
@@ -132,13 +158,42 @@ section {
 }
 
 /* Slider Icon bottom */
-@-webkit-keyframes slideInBottom { from { bottom: -1em; opacity: 0; } to { bottom:.35em;  opacity: 1;  } }
-@-moz-keyframes slideInBottom { from { bottom:-1em; opacity: 0; } to { bottom:.35em;  opacity: 1; } }
-@keyframes slideInBottom { from { bottom:-1em; opacity: 0; } to { bottom:.35em;  opacity: 1;} }
+@-webkit-keyframes slideInBottom {
+    from {
+        bottom: -1em;
+        opacity: 0;
+    }
+    to {
+        bottom: .35em;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInBottom {
+    from {
+        bottom: -1em;
+        opacity: 0;
+    }
+    to {
+        bottom: .35em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInBottom {
+    from {
+        bottom: -1em;
+        opacity: 0;
+    }
+    to {
+        bottom: .35em;
+        opacity: 1;
+    }
+}
 
 .draggable-bottom::before {
     font-family: FontAwesome;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     left: 50%;
     content: "\f077";
@@ -158,20 +213,48 @@ section {
     animation-duration: .7s;
 }
 
-
-.draggable-right{
-    background: rgba(254, 254, 254, .8) ;
-    color: rgba(254, 254, 254, .8) ;
+.draggable-right {
+    background: rgb(254, 254, 254);
+    color: rgba(254, 254, 254, .7);
 }
 
 /* Slider Icon Right */
-@-webkit-keyframes slideInRight { from { right: -1em; opacity: 0; } to { right:.75em;  opacity: 1;  } }
-@-moz-keyframes slideInRight { from { right: -1em; opacity: 0; } to { right:.75em;  opacity: 1;  } }
-@keyframes slideInRight { from { right: -1em; opacity: 0; } to { right:.75em;  opacity: 1;  } }
+@-webkit-keyframes slideInRight {
+    from {
+        right: -1em;
+        opacity: 0;
+    }
+    to {
+        right: .75em;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInRight {
+    from {
+        right: -1em;
+        opacity: 0;
+    }
+    to {
+        right: .75em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        right: -1em;
+        opacity: 0;
+    }
+    to {
+        right: .75em;
+        opacity: 1;
+    }
+}
 
 .draggable-right::before {
     font-family: FontAwesome;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     top: 50%;
     content: "\f053";
@@ -191,20 +274,48 @@ section {
     animation-duration: .7s;
 }
 
-
 .draggable-left {
-    background: rgba(31,31,31, .8);
-    color: rgba(31,31,31, .8);
+    background: rgb(31, 31, 31);
+    color: rgba(31, 31, 31, .7);
 }
 
 /* Slider Icon left */
-@-webkit-keyframes slideInLeft { from { left: -1em; opacity: 0; } to { left:.75em;  opacity: 1;  } }
-@-moz-keyframes slideInLeft { from { left: -1em; opacity: 0; } to { left:.75em;  opacity: 1;  } }
-@keyframes slideInLeft { from { left: -1em; opacity: 0; } to { left:.75em;  opacity: 1;  } }
+@-webkit-keyframes slideInLeft {
+    from {
+        left: -1em;
+        opacity: 0;
+    }
+    to {
+        left: .75em;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInLeft {
+    from {
+        left: -1em;
+        opacity: 0;
+    }
+    to {
+        left: .75em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        left: -1em;
+        opacity: 0;
+    }
+    to {
+        left: .75em;
+        opacity: 1;
+    }
+}
 
 .draggable-left::before {
     font-family: FontAwesome;
-    font-size: 3em;
+    font-size: 2em;
     position: absolute;
     top: 50%;
     content: "\f054";
@@ -223,22 +334,23 @@ section {
     -moz-animation-duration: .7s;
     animation-duration: .7s;
 }
+
 /* navigation */
 .navigation {
     position: absolute;
-    bottom: 50px;
-    right: 50px;
-    width: 100px;
-    height: 100px;
+    top: 40px;
+    left: 40px;
+    width: 80px;
+    height: 80px;
 }
 
 .position {
     position: relative;
     float: left;
-    width: 40px;
-    height: 40px;
-    margin: 5px;
-    background: rgba(200,200,200,.3);
+    width: 36px;
+    height: 36px;
+    margin: 2px;
+    background: rgba(200, 200, 200, .3);
 
     -webkit-transition-property: background;
     transition-property: background;
@@ -248,51 +360,81 @@ section {
     transition-timing-function: linear;
 }
 
-
 .active-slide {
-    background: rgba(200,200,200,.9);
+    background: rgba(200, 200, 200, .9);
 }
 
-/*home icon*/
+/* homelink */
 
-.icon-rotate{
-    -webkit-transform: rotate(-90deg);
+.title {
+    opacity: 0;
+    position: absolute;
+    top: 2px;
+    left: 82px;
+    width: 400px;
+    padding: 15px 22px;
+    background-color: rgba(200,200,200,.9);
+    transition: opacity .25s;
+    -webkit-transition: opacity .25s;
 }
 
-.icon-home{
-    opacity: 0.7;
-    font-size: 2em;
-    position: absolute !important;
-    top: 25px !important;
-    left: 60px !important;
-    z-index: 1000;
-
-
-    /* test anim */
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .25s;
-    transition-duration: .25s;
-    -webkit-transition-timing-function: linear;
-    transition-timing-function: linear;
+.title h2 {
+    text-transform: none;
+    font-size: 18px;
 }
 
-.icon-left {
-    color: #f5f5f5;
+.title h3 {
+    font-size: 25px;
 }
 
-.icon-right {
-    color: #1f1f1f;
+.homelink{
+    opacity: 0;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 84px;
+    height: 76px;
 }
+
+.navigation:hover .title{opacity: 1; transition: opacity 1s;}
+.navigation:hover .position{ background: rgba(24, 166, 140, .8);}
+.navigation:hover .one{
+    transition: background .7s ease-out .4s;
+    -webkit-transition: background .7s ease-out .4s;
+}
+.navigation:hover .two{
+    transition: background .7s ease-out .1s;
+    -webkit-transition: background .7s ease-out .1s;
+}
+.navigation:hover .three{
+    transition: background .7s ease-out .2s;
+    -webkit-transition: background .7s ease-out .2s;
+}
+.navigation:hover .four{
+    transition: background .7s ease-out .3s;
+    -webkit-transition: background .7s ease-out .3s;
+}
+
+/*photo*/
+.header{
+    font-weight: normal;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.photo{
+    max-height:100%;
+}
+
 
 /*artist*/
 
-.avatar{
+.avatar {
     margin-top: 2em;
     margin-bottom: 2em;
 }
 
-.avatar-header{
+.avatar-header {
     letter-spacing: 0.5em;
     font-weight: normal;
 }
@@ -304,18 +446,79 @@ section {
 }
 
 .quote:before,
-.quote:after{
+.quote:after {
     font: 1.5em/150% 'Rajdhani', sans-serif;
     color: lightgrey;
 }
 
-.quote:before{
+.quote:before {
     content: open-quote;
 }
 
-.quote:after{
+.quote:after {
     content: close-quote;
 }
+
+/*gallery*/
+
+.thumb {
+    box-shadow: 0 0 16px #000;
+    margin-bottom: 10px;
+}
+
+.white {
+    box-shadow: 0 0 16px #CBCBCB;
+}
+
+.caption {
+    padding-bottom: 20px;
+    font-size: 17px;
+}
+
+
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for vh unit */
+    min-height: 100vh; /* You might also want to use
+                        'height' property instead.
+
+                        Note that for percentage values of
+                        'height' or 'min-height' properties,
+                        the 'height' of the parent element
+                        should be specified explicitly.
+
+                        In this case the parent of '.vertical-center'
+                        is the <body> element */
+
+    /* Make it a flex container */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    /* Align the bootstrap's container vertically */
+    -webkit-box-align : center;
+    -webkit-align-items : center;
+    -moz-box-align : center;
+    -ms-flex-align : center;
+    align-items : center;
+
+    /* In legacy web browsers such as Firefox 9
+       we need to specify the width of the flex container */
+    width: 100%;
+
+    /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+       hence the bootstrap's container won't be aligned to the center anymore.
+
+       Therefore, we should use the following declarations to get it centered again */
+    -webkit-box-pack : center;
+    -moz-box-pack : center;
+    -ms-flex-pack : center;
+    -webkit-justify-content : center;
+    justify-content : center;
+}
+
 
 /* beacon */
 /*
@@ -332,12 +535,12 @@ section {
     cursor: pointer;
 }
 
-.beacon{
+.beacon {
     position: relative;
     margin: 0 auto;
     height: 100px;
     width: 100px;
-    background:  rgba(24, 166, 140, .8);
+    background: rgba(24, 166, 140, .8);
     border-radius: 200px;
 }
 
@@ -347,16 +550,16 @@ section {
     font-weight: bold;
 }
 
-@-webkit-keyframes ping{
-    0%{
+@-webkit-keyframes ping {
+    0% {
         opacity: 1;
         border-color: rgba(24, 166, 140, .5);
     }
 
-    100%{
-        transform: scale(2,2);
+    100% {
+        transform: scale(2, 2);
         opacity: 0;
-        border-color:  rgba(24, 166, 140, .2);
+        border-color: rgba(24, 166, 140, .2);
     }
 }
 
@@ -368,25 +571,28 @@ section {
     box-sizing: border-box;
     border-style: solid;
     border-size: 1px;
-    border-color:  rgba(24, 166, 140, .5);
+    border-color: rgba(24, 166, 140, .5);
 }
+
 .ping1 {
-    -webkit-animation:   ping 2s infinite 0s;
-    -moz-animation:      ping 2s infinite 0s;
-    -o-animation:        ping 2s infinite 0s;
-    animation:           ping 2s infinite 0s;
+    -webkit-animation: ping 2s infinite 0s;
+    -moz-animation: ping 2s infinite 0s;
+    -o-animation: ping 2s infinite 0s;
+    animation: ping 2s infinite 0s;
 }
+
 .ping2 {
-    -webkit-animation:   ping 2s infinite 0.25s;
-    -moz-animation:      ping 2s infinite 0.25s;
-    -o-animation:        ping 2s infinite 0.25s;
-    animation:           ping 2s infinite 0.25s;
+    -webkit-animation: ping 2s infinite 0.25s;
+    -moz-animation: ping 2s infinite 0.25s;
+    -o-animation: ping 2s infinite 0.25s;
+    animation: ping 2s infinite 0.25s;
 }
+
 .ping3 {
-    -webkit-animation:   ping 2s infinite 0.5s;
-    -moz-animation:      ping 2s infinite 0.5s;
-    -o-animation:        ping 2s infinite 0.5s;
-    animation:           ping 2s infinite 0.5s;
+    -webkit-animation: ping 2s infinite 0.5s;
+    -moz-animation: ping 2s infinite 0.5s;
+    -o-animation: ping 2s infinite 0.5s;
+    animation: ping 2s infinite 0.5s;
 }
 
 /* täääst */

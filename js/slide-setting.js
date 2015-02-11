@@ -1,19 +1,20 @@
+var setting = (function () {
 
-var setting  = (function() {
     return {
 
         /**
          * setzt die Startposition des Scriptes,
-         * sollte in location div Tag die Klasse "top-left" oder "top-right" vorhanden sein,
+         * sollte in body Tag die Klasse "top-left" oder "top-right" vorhanden sein,
          * so werden die einstellungen überschrieben.
          */
         startScreen: {
-            orientationX: "right",
+            orientationX: "left",
             orientationY: "top" /* bottom position not supported*/
         },
 
+
         /**
-         *  fügt die Position und das HomeIcon zu der aktuellen Slides hinzu ( unten rechts )
+         *  fügt die Position des aktuellen Slides hinzu ( unten rechts )
          */
         addHome: true,
 
@@ -43,7 +44,6 @@ var setting  = (function() {
 
         /**
          * Zeigt einen Beacon und beginnt mit der Anfagsanimation
-         * TODO: Anfangsanimation noch nicht implementiert
          */
         showBeacon: false,
 
@@ -55,7 +55,7 @@ var setting  = (function() {
         /**
          * Blendet den Beacon Text nach x ms ein
          */
-        showBeaconTooltipAfter : 8000,
+        showBeaconTooltipAfter: 8000,
 
         /**
          * Die Zeit, die für das einblenden benötigt wird in ms
@@ -70,19 +70,30 @@ var setting  = (function() {
         fadeOutTime: "slow",
 
         /**
-          Ein/Ausblendzeit des Sliders
+         Ein/Ausblendzeit des Sliders
          */
         toggleSliderTime: "slow",
 
 
         /**
+         * Die Easing Funktion der Slider
+         * siehe: http://jqueryui.com/easing/
+         */
+        sliderEasing: "easeOutCubic",
+
+        /**
          *  Zeit in ms, die der Slider braucht, um zur seite zu Animieren
          */
-        sliderAnimDuration : 800,
+        sliderAnimDuration: 800,
+
+        /**
+         *  Animation die Slider beim Starten
+         */
+        startAnimEasing : "easeOutCubic",
 
         /**
          * dev test
          */
-        startScreenAnimDuration: 5000
+        startScreenAnimDuration: 100
     }
 })();

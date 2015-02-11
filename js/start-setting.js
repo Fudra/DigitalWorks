@@ -16,7 +16,7 @@ var setting = (function () {
         /**
          *  fügt die Position des aktuellen Slides hinzu ( unten rechts )
          */
-        addHome: true,
+        addHome: false,
 
         /**
          * fügt den vertikalen Slide Balken hinzu
@@ -44,7 +44,6 @@ var setting = (function () {
 
         /**
          * Zeigt einen Beacon und beginnt mit der Anfagsanimation
-         * TODO: Anfangsanimation noch nicht implementiert
          */
         showBeacon: true,
 
@@ -77,9 +76,20 @@ var setting = (function () {
 
 
         /**
+         * Die Easing Funktion der Slider
+         * siehe: http://jqueryui.com/easing/
+         */
+        sliderEasing: "easeOutCubic",
+
+        /**
          *  Zeit in ms, die der Slider braucht, um zur seite zu Animieren
          */
         sliderAnimDuration: 800,
+
+        /**
+         *  Animation die Slider beim Starten
+         */
+        startAnimEasing : "easeOutCubic",
 
         /**
          * dev test

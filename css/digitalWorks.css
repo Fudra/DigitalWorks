@@ -11,7 +11,7 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Rajdhani', Arial, sans-serif;
-    background-color: #222;
+    background-color: #f5f5f5;
     font-weight: 300;
     margin: 0;
 }
@@ -253,6 +253,7 @@ section {
 }
 
 .draggable-right::before {
+    color: rgba(254, 254, 254, .7);
     font-family: FontAwesome;
     font-size: 2em;
     position: absolute;
@@ -313,7 +314,8 @@ section {
     }
 }
 
-.draggable-left::before {
+.draggable-left::after {
+    color: rgba(31, 31, 31, .7);
     font-family: FontAwesome;
     font-size: 2em;
     position: absolute;
@@ -593,6 +595,12 @@ section {
     -moz-animation: ping 2s infinite 0.5s;
     -o-animation: ping 2s infinite 0.5s;
     animation: ping 2s infinite 0.5s;
+}
+
+/*  sonstiges */
+
+.hide {
+    display: none;
 }
 
 /* täääst */

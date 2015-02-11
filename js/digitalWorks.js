@@ -212,7 +212,7 @@ var slider = (function () {
     }
 
     /**
-     *
+     * setzt die Maske der einzelnen sections
      */
     function setSectionPos() {
         var per = getPercentage();
@@ -423,7 +423,7 @@ var slider = (function () {
                 left: l
             }, {
                 duration: setting.sliderAnimDuration,
-                easing: "linear",
+                easing: setting.sliderEasing,
                 step: function (now, fx) {
                     //console.log(fx.elem.id + " " + fx.prop + ": " + now);
                     dragPosX = now+dragXWidth;
@@ -438,7 +438,7 @@ var slider = (function () {
                 left: 0
             }, {
                 duration: setting.sliderAnimDuration,
-                easing: "linear",
+                easing: setting.sliderEasing,
                 step: function (now, fx) {
                     //console.log(fx.elem.id + " " + fx.prop + ": " + now);
                     dragPosX = now+dragXWidth;
@@ -457,7 +457,7 @@ var slider = (function () {
                 top: b
             }, {
                 duration: setting.sliderAnimDuration,
-                easing: "linear",
+                easing: setting.sliderEasing,
                 step: function (now, fx) {
                     //console.log(fx.elem.id + " " + fx.prop + ": " + now);
                     dragPosY = now+dragYHeight;
@@ -472,7 +472,7 @@ var slider = (function () {
                 top: 0
             }, {
                 duration: setting.sliderAnimDuration,
-                easing: "linear",
+                easing: setting.sliderEasing,
                 step: function (now, fx) {
                     //console.log(fx.elem.id + " " + fx.prop + ": " + now);
                     dragPosY = now+dragYHeight;
@@ -579,6 +579,9 @@ var slider = (function () {
         }
     }
 
+    /**
+     * use only one Slider !?
+     */
     function useOneSlider() {
         if(!setting.slideVertical) {
             dragPosY = (screenCenter.Y * 2) - dragYHeight;
@@ -629,6 +632,53 @@ var slider = (function () {
         //  $("#draggable-v").css("top", dragPosY);
     }
 
+    /**
+     * Animation, nachdem auf dem Beacon geklickt wurde.
+     */
+    function animateOnStartUp() {
+        $(".first").fadeIn(setting.fadeInTime, function() {
+            $(".location").animate({
+                width: $(".main").width()
+            }, {
+                duration: (setting.sliderAnimDuration * 1.473),
+                easing: setting.startAnimEasing,
+                step: function (now, fx) {
+                    setMaskOnStartUp(now);
+                },
+                complete: function() {
+                    $(".second").css("display", "block");
+                    $( this ).animate({
+                        width: $(".main").width()/2
+                    }, {
+                        duration: (setting.sliderAnimDuration * 1),
+                        easing: setting.startAnimEasing,
+                        step: function (now, fx) {
+                            setMaskOnStartUp(now);
+                        },
+                        complete: function() {
+                            $(".draggable").css("left",screenCenter.X-$(".draggable").width()/2).addClass("draggable-right").fadeIn(setting.fadeInTime, function() {
+                                // todo
+                                console.log("LegoMeisterLP");
+                            })
+                        }
+                    });
+                }
+            });
+        })
+    }
+
+    function setMaskOnStartUp(value){
+        var per = value /  $(".main").width() * 100;
+        per = per<0.5 ? .5 : per;
+        per = per>99.5 ? 99.5 : per;
+        var first = "inset(0% " + (100-per) + "% 0% 0% )";
+        var second = "inset(0% 0% 0% " + per + "% )";
+
+        //console.log("first: " + first);
+        //console.log("second: " + second);
+        $(".first").css("-webkit-clip-path", first);
+        $(".second").css("-webkit-clip-path", second);
+    }
 
 
     return {
@@ -636,10 +686,13 @@ var slider = (function () {
         getPos: getDragPosition,
         screenCenter: screenCenter,
         updateCenter: updateCenter,
-        useOneSlider: useOneSlider
+        useOneSlider: useOneSlider,
+        animateOnStartUp: animateOnStartUp
     }
 
 }());
+
+
 
 
 /*****************/
@@ -700,7 +753,7 @@ var addHTML = (function () {
     }
 
     function createBeacon () {
-        $("section").first()
+        $("section").css("display","none").first()
             .before('<section class="beacon-container" style="display: none">' +
             '<div class="beacon" >' +
             '<div class="ping ping1"></div>' +
@@ -729,8 +782,11 @@ var addHTML = (function () {
         $(".beacon-container").click(function() {
             $(".beacon-container").fadeOut(setting.fadeOutTime, function() {
                 // TODO: Animation complete.
+                slider.animateOnStartUp();
             });
         });
+
+        $(".draggable").css("display","none");
     }
 
     return {
@@ -765,9 +821,6 @@ $(window).ready(function () {
         setting.startScreen.orientationY = "top";
     }
 
-    if (setting.showBeacon)
-        addHTML.addBeacon();
-
     if (setting.addHome)
         addHTML.addPosition();
 
@@ -776,12 +829,13 @@ $(window).ready(function () {
     else
         slider.useOneSlider();
 
-
     if (setting.slideHorizontal)
         addHTML.addHorizontal();
     else
         slider.useOneSlider();
 
+    if (setting.showBeacon)
+        addHTML.addBeacon();
 
     slider.register();
     slider.getPos();

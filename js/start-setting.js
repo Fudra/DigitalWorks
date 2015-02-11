@@ -1,25 +1,32 @@
-/**
- * Created by Philipp Wahle on 10.02.2015.
- */
-
-var setting  = (function() {
+var setting = (function () {
 
     return {
 
         /**
+         * setzt die Startposition des Scriptes,
+         * sollte in body Tag die Klasse "top-left" oder "top-right" vorhanden sein,
+         * so werden die einstellungen überschrieben.
+         */
+        startScreen: {
+            orientationX: "right",
+            orientationY: "top" /* bottom position not supported*/
+        },
+
+
+        /**
          *  fügt die Position des aktuellen Slides hinzu ( unten rechts )
          */
-        addHome: false,
+        addHome: true,
 
         /**
          * fügt den vertikalen Slide Balken hinzu
          */
-        slideVertical: true,
+        slideVertical: false,
 
         /**
          * fügt den horizontalen Slide Balken hinzu
          */
-        slideHorizontal: false,
+        slideHorizontal: true,
 
         /**
          *  gibt die position an, welcher der 4 Bildschirme gesperrt sein soll
@@ -33,7 +40,7 @@ var setting  = (function() {
         /**
          * Sperrt den oben genannten Bildschirm
          */
-        isScreenLock: true,
+        isScreenLock: false,
 
         /**
          * Zeigt einen Beacon und beginnt mit der Anfagsanimation
@@ -49,7 +56,7 @@ var setting  = (function() {
         /**
          * Blendet den Beacon Text nach x ms ein
          */
-        showBeaconTooltipAfter : 8000,
+        showBeaconTooltipAfter: 8000,
 
         /**
          * Die Zeit, die für das einblenden benötigt wird in ms
@@ -72,6 +79,11 @@ var setting  = (function() {
         /**
          *  Zeit in ms, die der Slider braucht, um zur seite zu Animieren
          */
-        sliderAnimDuration : 800
+        sliderAnimDuration: 800,
+
+        /**
+         * dev test
+         */
+        startScreenAnimDuration: 100
     }
 })();

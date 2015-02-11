@@ -1,7 +1,16 @@
 
 var setting  = (function() {
-
     return {
+
+        /**
+         * setzt die Startposition des Scriptes,
+         * sollte in location div Tag die Klasse "top-left" oder "top-right" vorhanden sein,
+         * so werden die einstellungen überschrieben.
+         */
+        startScreen: {
+            orientationX: "right",
+            orientationY: "top" /* bottom position not supported*/
+        },
 
         /**
          *  fügt die Position und das HomeIcon zu der aktuellen Slides hinzu ( unten rechts )
@@ -69,6 +78,11 @@ var setting  = (function() {
         /**
          *  Zeit in ms, die der Slider braucht, um zur seite zu Animieren
          */
-        sliderAnimDuration : 800
+        sliderAnimDuration : 800,
+
+        /**
+         * dev test
+         */
+        startScreenAnimDuration: 5000
     }
 })();

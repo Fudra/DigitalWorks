@@ -220,6 +220,9 @@ var slider = (function () {
         var second = "inset(0% 0% " + per.horizontalInverted + "% " + per.vertical + "% )";
         var third = "inset(" + per.horizontal + "% " + per.verticalInverted + "% 0%  0% )";
         var fourth = "inset(" + per.horizontal + "% 0% 0% " + per.vertical + "%)";
+
+        console.log("first: " + first);
+        console.log("second: " + second);
         $(".first").css("-webkit-clip-path", first);
         $(".second").css("-webkit-clip-path", second);
         $(".third").css("-webkit-clip-path", third);
@@ -232,8 +235,10 @@ var slider = (function () {
      */
     function getPercentage() {
         var main = $(".main");
-        var widthPos = dragPosX / main.width() * 100;
-        var heightPos = dragPosY / main.height() * 100;
+
+        var widthPos = setting.slideHorizontal ? (dragPosX / main.width() * 100) : 99.9;
+        var heightPos = setting.slideVertical ? (dragPosY / main.height() * 100) : 99.9;
+
         return {
             vertical: widthPos,
             verticalInverted: 100 - widthPos,
@@ -243,7 +248,7 @@ var slider = (function () {
     }
 
     /**
-     * ok
+     * Prüft ob sich der Slider Oben oder Unten befindet
      * @param height
      */
     function checkSliderPositionVertical(height) {
@@ -261,7 +266,7 @@ var slider = (function () {
     }
 
     /**
-     *
+     * Prüft ob sich der Slider Links oder Rechts befindet
      * @param width
      */
     function checkSliderPositionHorizontal(width) {
@@ -303,16 +308,20 @@ var slider = (function () {
          left-bottom   right-bottom
          */
 
-        draggieH.enable();
-       // $("#draggable-h").toggle(setting.toggleSliderTime);
-        $("#draggable-h").fadeIn(setting.toggleSliderTime, function() {
-            // todo
-        });
-        draggieV.enable();
-       // $("#draggable-v").toggle(setting.toggleSliderTime);
-        $("#draggable-v").fadeIn(setting.toggleSliderTime, function() {
-            // todo
-        });
+        if(setting.slideHorizontal) {
+            draggieH.enable();
+            // $("#draggable-h").toggle(setting.toggleSliderTime);
+            $("#draggable-h").fadeIn(setting.toggleSliderTime, function () {
+                // todo
+            });
+        }
+        if(setting.slideVertical) {
+            draggieV.enable();
+            // $("#draggable-v").toggle(setting.toggleSliderTime);
+            $("#draggable-v").fadeIn(setting.toggleSliderTime, function () {
+                // todo
+            });
+        }
 
         /**
          *   x c
@@ -321,14 +330,14 @@ var slider = (function () {
 
         if (pos.orientationX == "right" && pos.orientationY == "top") {
             console.log("right-top");
-            if ( lock.orientationY == "top" && lock.orientationX == "left") {
+            if ( lock.orientationY == "top" && lock.orientationX == "left" && setting.slideHorizontal) {
                 draggieH.disable();
                 //$("#draggable-h").toggle(setting.toggleSliderTime);
                 $("#draggable-h").fadeOut(setting.toggleSliderTime, function() {
                     // todo
                 })
             }
-            if ( lock.orientationY == "bottom"  && lock.orientationX == "right") {
+            if ( lock.orientationY == "bottom"  && lock.orientationX == "right" && setting.slideVertical) {
                 draggieV.disable();
                 //$("#draggable-v").toggle(setting.toggleSliderTime);
                 $("#draggable-v").fadeOut(setting.toggleSliderTime, function() {
@@ -343,14 +352,14 @@ var slider = (function () {
          */
 
         if(pos.orientationX == "left" && pos.orientationY == "bottom") {
-            if (lock.orientationY == "top" && lock.orientationX == "left") {
+            if (lock.orientationY == "top" && lock.orientationX == "left" && setting.slideVertical) {
                 draggieV.disable();
                 //$("#draggable-v").toggle(setting.toggleSliderTime);
                 $("#draggable-v").fadeOut(setting.toggleSliderTime, function() {
                     // todo
                 })
             }
-            if (lock.orientationY == "bottom"  && lock.orientationX == "right") {
+            if (lock.orientationY == "bottom"  && lock.orientationX == "right" && setting.slideHorizontal) {
                 draggieH.disable();
                // $("#draggable-h").toggle(setting.toggleSliderTime);
                 $("#draggable-h").fadeOut(setting.toggleSliderTime, function() {
@@ -364,14 +373,14 @@ var slider = (function () {
          *   x 0
          */
         if (pos.orientationX == "left" && pos.orientationY == "top" ) {
-            if (lock.orientationY == "bottom" && lock.orientationX == "left") {
+            if (lock.orientationY == "bottom" && lock.orientationX == "left" && setting.slideVertical) {
                 draggieV.disable();
                 //$("#draggable-v").toggle(setting.toggleSliderTime);
                 $("#draggable-v").fadeOut(setting.toggleSliderTime, function() {
                     // todo
                 })
             }
-            if (lock.orientationY == "top" && lock.orientationX == "right") {
+            if (lock.orientationY == "top" && lock.orientationX == "right" && setting.slideHorizontal) {
                 draggieH.disable();
                // $("#draggable-h").toggle(setting.toggleSliderTime);
                 $("#draggable-h").fadeOut(setting.toggleSliderTime, function() {
@@ -387,14 +396,14 @@ var slider = (function () {
          */
 
         if( pos.orientationX == "right" && pos.orientationY == "bottom") {
-            if ( lock.orientationY == "top" && lock.orientationX == "right") {
+            if ( lock.orientationY == "top" && lock.orientationX == "right" && setting.slideVertical) {
                 draggieV.disable();
                 //$("#draggable-v").toggle(setting.toggleSliderTime);
                 $("#draggable-v").fadeOut(setting.toggleSliderTime, function() {
                     // todo
                 })
             }
-            if ( lock.orientationY == "bottom"  && lock.orientationX == "left") {
+            if ( lock.orientationY == "bottom"  && lock.orientationX == "left" && setting.slideHorizontal) {
                 draggieH.disable();
                // $("#draggable-h").toggle(setting.toggleSliderTime);
                 $("#draggable-h").fadeOut(setting.toggleSliderTime, function() {
@@ -416,7 +425,7 @@ var slider = (function () {
                 duration: setting.sliderAnimDuration,
                 easing: "linear",
                 step: function (now, fx) {
-                    console.log(fx.elem.id + " " + fx.prop + ": " + now);
+                    //console.log(fx.elem.id + " " + fx.prop + ": " + now);
                     dragPosX = now+dragXWidth;
                     setSectionPos();
                     checkSliderPositionHorizontal(dragXWidth);
@@ -431,7 +440,7 @@ var slider = (function () {
                 duration: setting.sliderAnimDuration,
                 easing: "linear",
                 step: function (now, fx) {
-                    console.log(fx.elem.id + " " + fx.prop + ": " + now);
+                    //console.log(fx.elem.id + " " + fx.prop + ": " + now);
                     dragPosX = now+dragXWidth;
                     setSectionPos();
                     checkSliderPositionHorizontal(dragXWidth);
@@ -441,7 +450,7 @@ var slider = (function () {
     }
 
     function animV(currentY) {
-        console.log(screenCenter.Y < currentY);
+       // console.log(screenCenter.Y < currentY);
         if (screenCenter.Y < currentY) {
             var b = screenCenter.Y * 2 - dragYHeight*2;
             $("#draggable-v").animate({
@@ -450,7 +459,7 @@ var slider = (function () {
                 duration: setting.sliderAnimDuration,
                 easing: "linear",
                 step: function (now, fx) {
-                    console.log(fx.elem.id + " " + fx.prop + ": " + now);
+                    //console.log(fx.elem.id + " " + fx.prop + ": " + now);
                     dragPosY = now+dragYHeight;
                     setSectionPos();
                     checkSliderPositionVertical(dragYHeight);
@@ -465,7 +474,7 @@ var slider = (function () {
                 duration: setting.sliderAnimDuration,
                 easing: "linear",
                 step: function (now, fx) {
-                    console.log(fx.elem.id + " " + fx.prop + ": " + now);
+                    //console.log(fx.elem.id + " " + fx.prop + ": " + now);
                     dragPosY = now+dragYHeight;
                     setSectionPos();
                     checkSliderPositionVertical(dragYHeight);
@@ -474,11 +483,120 @@ var slider = (function () {
         }
     }
 
+    function updateCenter() {
+        var main = $('.main');
+        screenCenter.X = main.width() / 2;
+        screenCenter.Y = main.height() / 2;
+    }
+
+    function setStartPosition() {
+       // console.log("setStartPosition");
+        updateCenter();
+       // console.log("screen : " +  screenCenter.X*2 + " "  + screenCenter.Y*2);
+
+        if(setting.startScreen.orientationX == "left" && setting.startScreen.orientationY == "top"){
+            //console.log("left-top");
+            if(setting.slideVertical) {
+                //console.log("slideVertical");
+                var b = screenCenter.Y * 2 - dragYHeight * 2;
+                $("#draggable-v").animate({
+                    top: b
+                }, {
+                    duration: setting.startScreenAnimDuration,
+                    easing: "linear",
+                    step: function (now, fx) {
+                        console.log(fx.elem.id + " " + fx.prop + ": " + now);
+                        dragPosY = now + dragYHeight;
+                        setSectionPos();
+                        checkSliderPositionVertical(dragYHeight);
+                        screenPosition.saveLast();
+                        screenPosition.setY(screenCenter.Y < dragPosY);
+                        screenPosition.update();
+                    }
+                });
+            }
+
+            if(setting.slideHorizontal) {
+                console.log("slideHorizontal");
+                var l = screenCenter.X * 2 - dragXWidth * 2;
+                $("#draggable-h").animate({
+                    left: l
+                }, {
+                    duration: setting.startScreenAnimDuration,
+                    easing: "linear",
+                    step: function (now, fx) {
+                        //console.log(fx.elem.id + " " + fx.prop + ": " + now);
+                        dragPosX = now + dragXWidth;
+                        console.log("currentDragPoxX: " + dragPosX);
+                        setSectionPos();
+                        checkSliderPositionHorizontal(dragXWidth);
+                        screenPosition.saveLast();
+                        screenPosition.setX(screenCenter.X < dragPosX);
+                        screenPosition.update();
+                    }
+                });
+            }
+        }
+
+        if(setting.startScreen.orientationX == "right" && setting.startScreen.orientationY == "top"){
+            console.log("right-top");
+            if(setting.slideVertical) {
+                var b = screenCenter.Y * 2 - dragYHeight * 2;
+                $("#draggable-v").animate({
+                    top: b
+                }, {
+                    duration: setting.startScreenAnimDuration,
+                    easing: "linear",
+                    step: function (now, fx) {
+                        //console.log(fx.elem.id + " " + fx.prop + ": " + now);
+                        dragPosY = now + dragYHeight;
+                        setSectionPos();
+                        checkSliderPositionVertical(dragYHeight);
+                        screenPosition.saveLast();
+                        screenPosition.setY(screenCenter.Y < dragPosY);
+                        screenPosition.update();
+                    }
+                });
+            }
+
+            if(setting.slideHorizontal) {
+                $("#draggable-h").animate({
+                    left: 0
+                }, {
+                    duration: setting.startScreenAnimDuration,
+                    easing: "linear",
+                    step: function (now, fx) {
+                        //console.log(fx.elem.id + " " + fx.prop + ": " + now);
+                        dragPosX = now + dragXWidth;
+                        setSectionPos();
+                        checkSliderPositionHorizontal(dragXWidth);
+                        screenPosition.saveLast();
+                        screenPosition.setX(screenCenter.X < dragPosX);
+                        screenPosition.update();
+                    }
+                });
+            }
+        }
+    }
+
+    function useOneSlider() {
+        if(!setting.slideVertical) {
+            dragPosY = (screenCenter.Y * 2) - dragYHeight;
+        }
+        if(!setting.slideHorizontal) {
+            dragPosX = screenCenter.X * 2 - dragXWidth;
+        }
+
+        console.log(dragPosY);
+
+        setSectionPos();
+    }
 
     /**
      *
      */
     function init() {
+
         if (setting.slideVertical) {
             dragV = document.querySelector('#draggable-v');
 
@@ -502,26 +620,23 @@ var slider = (function () {
             });
 
             draggieH.on('dragMove', onDragMoveH);
-            draggieH.on('dragEnd',onDragEndH);
+            draggieH.on('dragEnd', onDragEndH);
 
             dragXWidth = $('#draggable-h').width() / 2;
         }
-
+        setStartPosition();
         // $('#draggable-h').css("left", dragPosX);
         //  $("#draggable-v").css("top", dragPosY);
     }
 
-    function updateCenter() {
-        var main = $('.main');
-        screenCenter.X = main.width() / 2;
-        screenCenter.Y = main.height() / 2;
-    }
+
 
     return {
         register: init,
         getPos: getDragPosition,
         screenCenter: screenCenter,
-        updateCenter: updateCenter
+        updateCenter: updateCenter,
+        useOneSlider: useOneSlider
     }
 
 }());
@@ -586,7 +701,7 @@ var addHTML = (function () {
 
     function createBeacon () {
         $("section").first()
-            .before('<section class="beacon-container" style="display: none";>' +
+            .before('<section class="beacon-container" style="display: none">' +
             '<div class="beacon" >' +
             '<div class="ping ping1"></div>' +
             '<div class="ping ping2"></div>' +
@@ -612,7 +727,7 @@ var addHTML = (function () {
         }, setting.showBeaconAfter+setting.showBeaconTooltipAfter);
 
         $(".beacon-container").click(function() {
-            $(this).fadeOut(setting.fadeOutTime, function() {
+            $(".beacon-container").fadeOut(setting.fadeOutTime, function() {
                 // TODO: Animation complete.
             });
         });
@@ -636,8 +751,19 @@ var addHTML = (function () {
 /* init functions on document ready */
 
 $(window).ready(function () {
-
     fullscreen.setTo(".main");
+    slider.updateCenter();
+    if($(".location").hasClass("top-left"))
+    {
+        setting.startScreen.orientationX = "left";
+        setting.startScreen.orientationY = "top";
+    }
+
+    if($(".location").hasClass("top-right"))
+    {
+        setting.startScreen.orientationX = "right";
+        setting.startScreen.orientationY = "top";
+    }
 
     if (setting.showBeacon)
         addHTML.addBeacon();
@@ -647,28 +773,22 @@ $(window).ready(function () {
 
     if (setting.slideVertical)
         addHTML.addVertical();
+    else
+        slider.useOneSlider();
+
 
     if (setting.slideHorizontal)
         addHTML.addHorizontal();
+    else
+        slider.useOneSlider();
+
 
     slider.register();
     slider.getPos();
     //screenPosition.update();
-
-    slider.updateCenter();
 });
 
 $(window).resize(function () {
     fullscreen.setTo(".main");
     slider.updateCenter();
 });
-
-
-/********/
-/*  TODO */
-/*
- Snapping
- seiten ausblendbar
- Bugfixes
- */
-

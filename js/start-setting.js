@@ -8,10 +8,15 @@ var setting = (function () {
          * so werden die einstellungen überschrieben.
          */
         startScreen: {
-            orientationX: "right",
+            orientationX: "left",
             orientationY: "top" /* bottom position not supported*/
         },
 
+        /**
+         * blendet das Impressum und About Us ein
+         */
+
+        showImprintAndAboutUs: true,
 
         /**
          *  fügt die Position des aktuellen Slides hinzu ( unten rechts )
@@ -45,7 +50,7 @@ var setting = (function () {
         /**
          * Zeigt einen Beacon und beginnt mit der Anfagsanimation
          */
-        showBeacon: true,
+        showBeacon: !true,
 
         /**
          * Blendet den Beacon nach x ms ein

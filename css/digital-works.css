@@ -51,19 +51,19 @@ section {
 
 /* left section */
 .screen-left {
-    background-color: #1f1f1f;
+    background-color: #222;
     color: #f5f5f5;
 }
 
 /* right section */
 .screen-right {
     background-color: #f5f5f5;
-    color: #1f1f1f;
+    color: #222;
 }
 
 /* draggable */
 .draggable {
-   background: rgba(200, 200, 200, 0.1);
+    background: rgba(200, 200, 200, 0.1);
     position: absolute;
 
     /*animation*/
@@ -95,6 +95,7 @@ section {
     background: rgba(200, 200, 200, 0.5);
 }
 
+.basic-color,
 .draggable-bottom,
 .draggable-top {
     background: rgb(24, 166, 140);
@@ -375,7 +376,7 @@ section {
     left: 82px;
     width: 400px;
     padding: 15px 22px;
-    background-color: rgba(200,200,200,.9);
+    background-color: rgba(200, 200, 200, .9);
     transition: opacity .25s;
     -webkit-transition: opacity .25s;
 }
@@ -389,7 +390,7 @@ section {
     font-size: 25px;
 }
 
-.homelink{
+.homelink {
     opacity: 0;
     position: absolute;
     top: 2px;
@@ -398,36 +399,47 @@ section {
     height: 76px;
 }
 
-.navigation:hover .title{opacity: 1; transition: opacity 1s;}
-.navigation:hover .position{ background: rgba(24, 166, 140, .8);}
-.navigation:hover .one{
+.navigation:hover .title {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.navigation:hover .position {
+    background: rgba(24, 166, 140, .8);
+}
+
+.navigation:hover .one {
     transition: background .7s ease-out .4s;
     -webkit-transition: background .7s ease-out .4s;
 }
-.navigation:hover .two{
+
+.navigation:hover .two {
     transition: background .7s ease-out .1s;
     -webkit-transition: background .7s ease-out .1s;
 }
-.navigation:hover .three{
+
+.navigation:hover .three {
     transition: background .7s ease-out .2s;
     -webkit-transition: background .7s ease-out .2s;
 }
-.navigation:hover .four{
+
+.navigation:hover .four {
     transition: background .7s ease-out .3s;
     -webkit-transition: background .7s ease-out .3s;
 }
 
 /*photo*/
-.header{
+.header {
     font-weight: normal;
     font-size: 1.5em;
     margin: 0;
 }
 
-.photo{
-    max-height:100%;
-}
 
+
+.photo {
+    max-height: 100%;
+}
 
 /*artist*/
 
@@ -477,20 +489,19 @@ section {
     font-size: 17px;
 }
 
-
-
 .vertical-center {
-    min-height: 100%;  /* Fallback for vh unit */
-    min-height: 100vh; /* You might also want to use
-                        'height' property instead.
+    min-height: 100%; /* Fallback for vh unit */
+    min-height: 100vh;
+    /* You might also want to use
+                           'height' property instead.
 
-                        Note that for percentage values of
-                        'height' or 'min-height' properties,
-                        the 'height' of the parent element
-                        should be specified explicitly.
+                           Note that for percentage values of
+                           'height' or 'min-height' properties,
+                           the 'height' of the parent element
+                           should be specified explicitly.
 
-                        In this case the parent of '.vertical-center'
-                        is the <body> element */
+                           In this case the parent of '.vertical-center'
+                           is the <body> element */
 
     /* Make it a flex container */
     display: -webkit-box;
@@ -500,11 +511,11 @@ section {
     display: flex;
 
     /* Align the bootstrap's container vertically */
-    -webkit-box-align : center;
-    -webkit-align-items : center;
-    -moz-box-align : center;
-    -ms-flex-align : center;
-    align-items : center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 
     /* In legacy web browsers such as Firefox 9
        we need to specify the width of the flex container */
@@ -514,13 +525,12 @@ section {
        hence the bootstrap's container won't be aligned to the center anymore.
 
        Therefore, we should use the following declarations to get it centered again */
-    -webkit-box-pack : center;
-    -moz-box-pack : center;
-    -ms-flex-pack : center;
-    -webkit-justify-content : center;
-    justify-content : center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
-
 
 /* beacon */
 /*
@@ -601,6 +611,92 @@ section {
 
 .hide {
     display: none;
+}
+
+.footnote {
+    position: absolute;
+    bottom: 2em;
+}
+
+.footnote a {
+    color: rgba(24, 166, 140, .8);
+    font-size: 1.3em;
+}
+
+.imprint {
+    left: 25%;
+}
+
+.about {
+    right: 25%;
+}
+
+.progress {
+    position: absolute;
+    height: 10px;
+    bottom: 0;
+
+    transition-property: width;
+    transition-duration: .25s;
+    transition-timing-function: linear;
+}
+
+.margin-artist-top {
+    margin-top: 3em;
+}
+
+.cheat-sheet-left {
+    position: relative;
+    left: 20%;
+}
+
+.cheat-sheet-right {
+    position: relative;
+    right: 20%;
+}
+
+/* artist */
+
+.artist {
+    bottom: 15em;
+}
+
+.artist-link a {
+    color: #f5f5f5;
+}
+
+.artist-link a:hover,
+.artist-link a:visited,
+.artist-link a:active,
+.artist-link a:focus{
+    text-decoration: none;
+    color: rgba(24, 166, 140, .8);
+}
+
+.artist h2 {
+    text-transform: none;
+    font-size: 25px;
+}
+
+.artist-name {
+   text-transform: uppercase!important;
+}
+
+.artist h3 {
+    font-size: 18px;
+    text-transform: none!important;
+}
+
+.height-null {
+    height: 0;
+}
+
+.opacity-start {
+    opacity: .25;
+}
+
+.surface-margin {
+    margin-top: -1em;
 }
 
 /* täääst */

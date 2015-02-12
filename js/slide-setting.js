@@ -12,6 +12,11 @@ var setting = (function () {
             orientationY: "top" /* bottom position not supported*/
         },
 
+        /**
+         * blendet das Impressum und About Us ein
+         */
+
+        showImprintAndAboutUs: false,
 
         /**
          *  fügt die Position des aktuellen Slides hinzu ( unten rechts )

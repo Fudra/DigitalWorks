@@ -1,0 +1,21 @@
+<nav class="navigation">
+    <div class="position first"></div>
+    <div class="position second"></div>
+    <div class="position third"></div>
+    <div class="position fourth"></div>
+
+    <a href="index.html?beacon=false">
+        <div class="homelink"></div>
+    </a>
+
+    <div class="title">
+        {{#artists}}
+            {{#selected}}
+                <h2 class="header">{{name}}</h2>
+
+                <h3 class="header">{{title}}</h3>
+            {{/selected}}
+        {{/artists}}
+
+    </div>
+</nav>

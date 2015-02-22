@@ -1,0 +1,21 @@
+<div class="container-fluid gallery">
+    <div class="row">
+        {{#artists}}
+            {{#selected}}
+                {{#background}}
+                    <div class="gallery-item">
+                        <a href="{{imgfolder}}/{{short}}/{{src}}" class='lightview' data-lightview-group="background" data-
+                           data-lightview-title="{{caption}}">
+                            <img src="{{imgfolder}}/{{short}}/{{thumb}}"
+                                 class="img-responsive center-block thumb">
+                        </a>
+
+                        <p class="caption">{{caption}}</p>
+                    </div>
+                {{/background}}
+            {{/selected}}
+        {{/artists}}
+    </div>
+</div>
+
+

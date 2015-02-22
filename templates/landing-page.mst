@@ -1,0 +1,19 @@
+{{#artists}}
+    {{#images}}
+        {{#prev}}
+            <div class="artist img-container">
+                <img class="img-responsive" src="{{imgfolder}}/{{short}}/{{thumb}}">
+
+                <div class="owner">
+                    <a href="?id={{id}}">
+                        <div class="header">
+                            <h2 class="artist-name">{{name}}</h2>
+
+                            <h3 class="artist-title">{{title}}</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {{/prev}}
+    {{/images}}
+{{/artists}}

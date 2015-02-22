@@ -1,0 +1,170 @@
+/* style */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    overflow: hidden;
+}
+
+section {
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+section .screen {
+
+}
+
+section .mask {
+    position: relative;
+    /* height: 100%; TODO: set document height via js in px */
+    /* width: 1250px;  TODO: set document width via js in px */
+}
+
+section .inner {
+    width: 1024px;
+   /* height: 640px;*/
+    /*margin: auto;*/
+    overflow: hidden;
+}
+
+
+#first,
+#second,
+#third,
+#fourth {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.slider.slider-horizontal {
+    width: 10px;
+    height: 100%;
+    z-index: 550;
+    cursor: col-resize;
+}
+
+.slider.slider-vertical {
+    width: 100%;
+    height: 10px;
+    z-index: 500;
+    cursor: row-resize;
+}
+
+/* z-index*/
+#first {
+    z-index: 40;
+}
+
+#second {
+    z-index: 30;
+}
+
+
+#third {
+    z-index: 20;
+}
+
+
+#fourth {
+    z-index: 10;
+}
+
+/* gallery */
+
+.inner .gallery {
+    min-height: 100%; /* Fallback for vh unit */
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+
+.gallery .caption {
+    padding-bottom: 1.2em;
+    font-size: 1.25em;
+}
+
+
+.footnote {
+    z-index: 100;
+    font-size: 1.2em;
+    width: 1024px;
+    height: 100%;
+    position: relative;
+    bottom: .5em;
+    margin: 0 auto;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+
+
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.footnote > span {
+    display: inline-flex;
+    width: 30%;
+}
+
+.footnote .imprint {
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+.footnote .about {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+

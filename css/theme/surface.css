@@ -1,0 +1,563 @@
+/* surface theme */
+/* Quelle: FontAwesome*/
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../../fonts/fontawesome-webfont.eot?v=4.3.0');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wrapper {
+    font-family: 'Rajdhani', Arial, sans-serif!important;
+    background-color: #f5f5f5;
+    font-weight: 300!important;;
+}
+
+.mask {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.screen .inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.artist-name {
+    text-transform: uppercase!important;
+}
+
+.artist-title {
+
+}
+
+.owner a {
+    color: #f5f5f5;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin: 0;
+}
+.owner a:hover,
+.owner a:visited,
+.owner a:active,
+.owner a:focus{
+    text-decoration: none;
+    color: rgba(24, 166, 140, .8);
+}
+.header h2,
+.header h3 {
+    margin: 0;
+    text-align: center;
+    font-weight: normal;
+}
+
+.inner .headline {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.owner h2 {
+    text-transform: none;
+    font-size: 25px;
+}
+
+.owner h3 {
+    font-size: 18px;
+    text-transform: none!important;
+}
+
+
+.screen .inner .img-container {
+    width: 300px;
+    height: 300px;
+    margin: 3%;
+    display: inline-block;
+}
+
+.img-container > .owner {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    bottom: 300px;
+}
+
+.img-container > .owner a {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+/* landingpage*/
+#first .artist img{
+    opacity: .25;
+}
+
+#second .artist .header{
+    opacity: .25;
+}
+
+
+/* left section */
+#first,
+#third {
+    background-color: #222;
+    color: #f5f5f5;
+}
+
+/* right section */
+#second,
+#fourth {
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+
+/* slider */
+.slider {
+    background: rgba(200,200,200,.1);
+    position: absolute;
+
+    /*animation*/
+    -webkit-transition-property: background;
+    transition-property: background;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+
+
+.slider:hover,
+.slider:active,
+.slider:focus {
+    background: rgba(200, 200, 200, 0.5);
+}
+
+.slider.slider-top,
+.slider.slider-bottom {
+    background: rgb(24, 166, 140);
+    color: rgba(24, 166, 140, .7);
+}
+
+.slider.slider-left {
+    background: rgb(31, 31, 31);
+    color: rgba(31, 31, 31, .7);
+}
+.slider.slider-right {
+    background: rgb(254, 254, 254);
+    color: rgba(254, 254, 254, .7);
+}
+
+/*slide in animation */
+/* Slider Icon Right */
+@-webkit-keyframes slideInRight {
+    from {
+        right: -1em;
+        opacity: 0;
+    }
+    to {
+        right: .75em;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInRight {
+    from {
+        right: -1em;
+        opacity: 0;
+    }
+    to {
+        right: .75em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        right: -1em;
+        opacity: 0;
+    }
+    to {
+        right: .75em;
+        opacity: 1;
+    }
+}
+
+.slider.slider-right::before {
+    color: rgba(254, 254, 254, .7);
+    font-family: FontAwesome;
+    font-size: 2em;
+    position: absolute;
+    top: 50%;
+    content: "\f053";
+    display: inline-block;
+    right: -1em;
+    opacity: 0;
+    -webkit-animation: slideInRight ease-in 1;
+    -moz-animation: slideInRight ease-in 1;
+    animation: slideInRight ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
+}
+
+/* Slider Icon left */
+@-webkit-keyframes slideInLeft {
+    from {
+        left: -1em;
+        opacity: 0;
+    }
+    to {
+        left: .75em;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInLeft {
+    from {
+        left: -1em;
+        opacity: 0;
+    }
+    to {
+        left: .75em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        left: -1em;
+        opacity: 0;
+    }
+    to {
+        left: .75em;
+        opacity: 1;
+    }
+}
+
+.slider.slider-left::after {
+    color: rgba(31, 31, 31, .7);
+    font-family: FontAwesome;
+    font-size: 2em;
+    position: absolute;
+    top: 50%;
+    content: "\f054";
+    right: -1em;
+    display: inline-block;
+    opacity: 0;
+
+    -webkit-animation: slideInLeft ease-in 1;
+    -moz-animation: slideInLeft ease-in 1;
+    animation: slideInLeft ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
+}
+
+
+
+
+/* Slider Icon Top */
+@-webkit-keyframes slideInTop {
+    from {
+        top: -1em;
+        opacity: 0;
+    }
+    to {
+        top: .1em;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInTop {
+    from {
+        top: -1em;
+        opacity: 0;
+    }
+    to {
+        top: .1em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideIdTop {
+    from {
+        top: -1em;
+        opacity: 0;
+    }
+    to {
+        top: .1em;
+        opacity: 1;
+    }
+}
+
+.slider.slider-top::before {
+    font-family: FontAwesome;
+    font-size: 2em;
+    position: absolute;
+    left: 50%;
+    content: "\f078";
+    display: inline-block;
+    top: -1em;
+    opacity: 0;
+    -webkit-animation: slideInTop ease-in 1;
+    -moz-animation: slideInTop ease-in 1;
+    animation: slideInTop ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
+}
+
+/* Slider Icon bottom */
+@-webkit-keyframes slideInBottom {
+    from {
+        bottom: -1em;
+        opacity: 0;
+    }
+    to {
+        bottom: .35em;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slideInBottom {
+    from {
+        bottom: -1em;
+        opacity: 0;
+    }
+    to {
+        bottom: .35em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInBottom {
+    from {
+        bottom: -1em;
+        opacity: 0;
+    }
+    to {
+        bottom: .35em;
+        opacity: 1;
+    }
+}
+
+.slider.slider-bottom::before {
+    font-family: FontAwesome;
+    font-size: 2em;
+    position: absolute;
+    left: 50%;
+    content: "\f077";
+    display: inline-block;
+    bottom: -1em;
+    opacity: 0;
+    -webkit-animation: slideInBottom ease-in 1;
+    -moz-animation: slideInBottom ease-in 1;
+    animation: slideInBottom ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
+}
+
+/* navigaion */
+
+/* navigation */
+.navigation {
+    z-index: 50;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+}
+
+.navigation .position {
+    position: relative;
+    float: left;
+    width: 36px;
+    height: 36px;
+    margin: 2px;
+    background: rgba(200, 200, 200, .3);
+
+    -webkit-transition-property: background;
+    transition-property: background;
+    -webkit-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+.navigation .active-slide {
+    background: rgba(200, 200, 200, .9);
+}
+
+/* homelink */
+.navigation .title {
+    opacity: 0;
+    position: absolute;
+    top: 2px;
+    left: 82px;
+    width: 400px;
+    padding: 15px 22px;
+    background-color: rgba(200, 200, 200, .9);
+    transition: opacity .25s;
+    -webkit-transition: opacity .25s;
+}
+.navigation .header {
+   /* line-height: 1.3;*/
+    margin: 0;
+    font-family: 'Rajdhani', Arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+
+}
+
+.navigation .title h2 {
+    font-size: 18px;
+}
+
+.navigation .title h3 {
+    font-size: 25px;
+}
+
+.navigation .homelink {
+    opacity: 0;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 84px;
+    height: 76px;
+}
+
+.navigation:hover .title {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.navigation:hover .position {
+    background: rgba(24, 166, 140, .8);
+}
+
+.navigation:hover .one {
+    transition: background .7s ease-out .4s;
+    -webkit-transition: background .7s ease-out .4s;
+}
+
+.navigation:hover .two {
+    transition: background .7s ease-out .1s;
+    -webkit-transition: background .7s ease-out .1s;
+}
+
+.navigation:hover .three {
+    transition: background .7s ease-out .2s;
+    -webkit-transition: background .7s ease-out .2s;
+}
+
+.navigation:hover .four {
+    transition: background .7s ease-out .3s;
+    -webkit-transition: background .7s ease-out .3s;
+}
+
+
+/* avatar*/
+.inner .avatar-header {
+    letter-spacing: .5em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.inner .avatar {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+/* quotes */
+
+.inner blockquote {
+    border-left: 3px solid #ccc;
+    margin: 1.5em 15px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+.inner blockquote:before {
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+.inner blockquote p {
+    display: inline;
+}
+
+.inner blockquote footer {
+    text-align: right;
+    color: #999;
+    font-size: 85%;
+}
+
+/* discover */
+.inner .discover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* gallery */
+
+.gallery .gallery-image .thumb {
+    box-shadow: 0 0 16px #000;
+    margin-bottom: 10px;
+}
+
+.gallery .caption {
+    display: flex;
+    justify-content: center;
+}
+
+/* footnote */
+.footnote a {
+    text-decoration: none;
+    color: rgba(24, 166, 140, .8);
+}
+.footnote a:hover {
+    text-decoration: underline;
+    color: rgba(24, 166, 140, .8);
+}

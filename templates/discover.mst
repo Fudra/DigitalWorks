@@ -1,0 +1,11 @@
+{{#artists}}
+    {{#selected}}
+        {{#images}}
+            {{#prev}}
+                <div class="discover">
+                    <img class="img-responsive" src="{{imgfolder}}/{{short}}/{{src}}">
+                </div>
+            {{/prev}}
+        {{/images}}
+    {{/selected}}
+{{/artists}}

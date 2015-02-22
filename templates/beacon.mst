@@ -1,0 +1,8 @@
+<div class="beacon-container" style="display: none">
+    <div class="beacon">
+        <div class="ping ping1"></div>
+        <div class="ping ping2"></div>
+        <div class="ping ping3"></div>
+    </div>
+    <div class="beacon-tooltip" style="display: none;">{{beaconToolTip}}</div>
+</div>

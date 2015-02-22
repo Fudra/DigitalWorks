@@ -1,0 +1,6 @@
+<section class="screen" id="{{id}}">
+    <div class="mask">
+        <div class="inner">
+        </div>
+    </div>
+</section>

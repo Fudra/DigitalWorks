@@ -1,0 +1,5 @@
+<div class="footnote">
+    {{#footnote}}
+        <span class="{{id}}"><a href="?beacon=false&id={{id}}">{{name}}</a></span>
+    {{/footnote}}
+</div>

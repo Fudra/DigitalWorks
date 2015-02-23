@@ -17,8 +17,8 @@ var assets = (function () {
         //  Artist id
         global.id = (QueryString.id != undefined) ? QueryString.id : 0;
         //  use beacon animation
-        if(QueryString.beacon != undefined)
-             global.useBeaconAnimation =  QueryString.beacon != "false";
+        if (QueryString.beacon != undefined)
+            global.useBeaconAnimation = QueryString.beacon != "false";
         // slider position
         //global.position.x = (QueryString.x != undefined) ? QueryString.x : "left";
         //global.position.y = (QueryString.y != undefined) ? QueryString.y : "top";
@@ -222,34 +222,50 @@ var addHTML = (function () {
 /*    beacon      */
 /******************/
 
-var beacon = (function() {
+var beacon = (function () {
 
     function init() {
         console.log("beacon: " + !global.useBeaconAnimation);
-        if(!global.useBeaconAnimation)
+        if (!global.useBeaconAnimation) {
+            $(".screen").fadeIn(config.wrapperFadeInDuration);
+            $(".footnote").fadeIn(config.wrapperFadeInDuration);
             return;
-        setTimeout(function () {
-            animate();
-        }, config.timeout*2);
+        }
 
+        setTimeout(function () {
+            beacon();
+        }, config.timeout * 2);
+
+    }
+
+    function beacon() {
+        $(".beacon-container").fadeIn(config.beaconFadeInDuration).on("click", function () {
+            $(this).fadeOut(config.beaconFadeOutDuration, function () {
+                animate();
+            });
+        });
+        $(".beacon-tooltip")
+            .delay(config.beaconFadeInDuration + config.beaconToolTipFadeInDelay)
+            .fadeIn(config.beaconToolTipFadeInDuration);
     }
 
     function animate() {
-           // slider.moveHorizontal(0);
-            var timeout =  config.sliderAnimDuration * .1;
-            animOnTimeout(-50, config.animDividerOnResize * 10, timeout);
-            timeout += config.sliderAnimDuration * 2;
-            animOnTimeout(assets.screen.width - slider.slider.width/2, 1, timeout);
-            timeout +=config.sliderAnimDuration * .7;
-            animOnTimeout(assets.screenCenter.x, config.animDividerOnResize, timeout);
+
+        var timeout = config.sliderAnimDuration * .1;
+        animOnTimeout(-50, config.animDividerOnResize * 10, timeout, "#first");
+        timeout += config.sliderAnimDuration * 2;
+
+        animOnTimeout(assets.screen.width - slider.slider.width / 2, 1, timeout, "#second");
+        timeout += config.sliderAnimDuration * .7;
+        animOnTimeout(assets.screenCenter.x, config.animDividerOnResize, timeout, undefined, true);
+        timeout += config.animDividerOnResize*3;
     }
 
-    function animOnTimeout(target, divider, timeout) {
+    function animOnTimeout(target, divider, timeout, show, sliderCenter) {
         setTimeout(function () {
-            slider.animateHorizontal(target, divider);
+            slider.animateHorizontal(target, divider, show, sliderCenter);
         }, timeout);
     }
-
 
 
     return {
@@ -455,11 +471,11 @@ var slider = (function () {
      * @param target
      */
     function animateVertical(target, divider) {
-        var div = (divider !== undefined)? divider : 1;
+        var div = (divider !== undefined) ? divider : 1;
         $("#slider-vertical").animate({
             top: target
         }, {
-            duration: config.sliderAnimDuration/div,
+            duration: config.sliderAnimDuration / div,
             easing: config.sliderEasing,
             step: function (now, fx) {
                 moveVertical(now);
@@ -471,15 +487,23 @@ var slider = (function () {
      *
      * @param target
      */
-    function animateHorizontal(target, divider) {
-        var div = (divider !== undefined)? divider : 1;
+    function animateHorizontal(target, divider, showOnComplete, sliderCenter) {
+        var div = (divider !== undefined) ? divider : 1;
         $("#slider-horizontal").animate({
             left: target
         }, {
-            duration: config.sliderAnimDuration/div,
+            duration: config.sliderAnimDuration / div,
             easing: config.sliderEasing,
             step: function (now, fx) {
                 moveHorizontal(now);
+            },
+            complete: function () {
+                if (showOnComplete !== undefined) {
+                    $(showOnComplete).show();
+                }
+                if(sliderCenter !== undefined  && sliderCenter) {
+                    $("#slider-horizontal").addClass("slider-left slider-right");
+                }
             }
         });
     }
@@ -586,10 +610,9 @@ var keyControl = (function () {
         $(target).keydown(function (event) {
 
             //check if lightbox is open
-            if(config.lockKeyEventsOnOpenLightBox)
-            {
+            if (config.lockKeyEventsOnOpenLightBox) {
                 var displayTyp = $(config.lightBoxContainerClass).css('display');
-                if(displayTyp != "none")
+                if (displayTyp != "none")
                     return;
             }
 
@@ -662,12 +685,12 @@ $(function () {
 
     // init main
     setTimeout(function () {
-        $(".wrapper").fadeIn();
+
         assets.fullscreen(".wrapper");
         assets.fullscreen(".mask");
         slider.init();
         assets.update();
-        //beacon.init();
+        beacon.init();
         keyControl.register("body");
     }, config.timeout)
 });
@@ -681,10 +704,10 @@ $(window).resize(function () {
     if (global.position.y == "bottom")
         slider.animateVertical(0, config.animDividerOnResize);
     else
-        slider.animateVertical(assets.screen.height - slider.slider.height/2, config.animDividerOnResize);
+        slider.animateVertical(assets.screen.height - slider.slider.height / 2, config.animDividerOnResize);
 
     if (global.position.x == "right")
         slider.animateHorizontal(0, config.animDividerOnResize);
     else
-        slider.animateHorizontal(assets.screen.width - slider.slider.width/2, config.animDividerOnResize);
+        slider.animateHorizontal(assets.screen.width - slider.slider.width / 2, config.animDividerOnResize);
 });

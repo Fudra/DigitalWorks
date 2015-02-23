@@ -38,5 +38,27 @@ var config = {
     /**
      *
      */
-    lightBoxContainerClass: '.lv_window'
+    lightBoxContainerClass: '.lv_window',
+
+    /**
+     *
+     */
+    wrapperFadeInDuration: 500,
+
+    /**
+     *
+     */
+    beaconFadeInDuration: 500,
+
+    /**
+     *
+     */
+    beaconToolTipFadeInDelay: 2000,
+
+    /**
+     *
+     */
+    beaconToolTipFadeInDuration: 1000,
+
+    beaconFadeOutDuration: 500
 };

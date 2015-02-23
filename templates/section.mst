@@ -1,4 +1,4 @@
-<section class="screen" id="{{id}}">
+<section class="screen" id="{{id}}" style="display: none">
     <div class="mask">
         <div class="inner">
         </div>

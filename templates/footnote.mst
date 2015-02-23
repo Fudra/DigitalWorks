@@ -1,5 +1,7 @@
-<div class="footnote">
+<div class="footnote" style="display: none;">
+    <div class="inner">
     {{#footnote}}
         <span class="{{id}}"><a href="?beacon=false&id={{id}}">{{name}}</a></span>
     {{/footnote}}
+    </div>
 </div>

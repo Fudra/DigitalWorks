@@ -231,11 +231,16 @@ section .inner {
 
 .beacon-tooltip {
     font-size: larger;
-    color: rgba(255, 255, 255, .8);
-    font-weight: bold;
-    bottom: 3.5em;
-    position: relative;
+   /* color: rgba(255, 255, 255, .8); */
+   /*font-weight: bold; */
+    top: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%
 }
+
 
 @-webkit-keyframes ping {
     0% {

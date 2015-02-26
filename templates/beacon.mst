@@ -4,5 +4,12 @@
         <div class="ping ping2"></div>
         <div class="ping ping3"></div>
     </div>
-    <div class="beacon-tooltip" style="display: none;">{{beaconToolTip}}</div>
+    <div class="beacon-tooltip" style="display: none;">
+                {{#beaconToolTip}}
+    <blockquote cite="{{cite}}">
+                        <p> {{quote}}</p>
+                        <footer><cite>{{cite}}</cite></footer>
+                    </blockquote>
+                    {{/beaconToolTip}}
+    </div>
 </div>

@@ -57,13 +57,8 @@ var assets = (function () {
         });
     }
 
-    function updateImgClass() {
-        $(".gallery-item").addClass(config.colBootstrapClass);
-    }
-
     return {
         readUrl: readUrl,
-        update: updateImgClass,
         updateUrl: updateUrl,
         fullscreen: fullscreen,
         screenCenter: screenCenter,
@@ -226,7 +221,8 @@ var beacon = (function () {
 
     function init() {
         console.log("beacon: " + !global.useBeaconAnimation);
-        if (!global.useBeaconAnimation) {
+        if (!global.useBeaconAnimation || global.id != 0) {
+            console.log("beacon: " +  global.useBeaconAnimation);
             $(".screen").fadeIn(config.wrapperFadeInDuration);
             $(".footnote").fadeIn(config.wrapperFadeInDuration);
             return;
@@ -259,6 +255,7 @@ var beacon = (function () {
         timeout += config.sliderAnimDuration * .7;
         animOnTimeout(assets.screenCenter.x, config.animDividerOnResize, timeout, undefined, true);
         timeout += config.animDividerOnResize*3;
+        $(".footnote").fadeIn(config.wrapperFadeInDuration);
     }
 
     function animOnTimeout(target, divider, timeout, show, sliderCenter) {
@@ -618,22 +615,22 @@ var keyControl = (function () {
 
             switch (event.keyCode) {
                 case 27 :
-                    console.log("ESC Pressed");
+                   // console.log("ESC Pressed");
                     break;
                 case 37 :
-                    console.log("Left Pressed");
+                    //console.log("Left Pressed");
                     slider.animateHorizontal(0);
                     break;
                 case 38 :
-                    console.log("Up Pressed");
+                    //console.log("Up Pressed");
                     slider.animateVertical(0);
                     break;
                 case 39 :
-                    console.log("Right Pressed");
+                    //console.log("Right Pressed");
                     slider.animateHorizontal(assets.screen.width - slider.slider.width);
                     break;
                 case 40 :
-                    console.log("Down Pressed");
+                    //console.log("Down Pressed");
                     slider.animateVertical(assets.screen.height - slider.slider.height);
                     break;
             }
@@ -689,9 +686,11 @@ $(function () {
         assets.fullscreen(".wrapper");
         assets.fullscreen(".mask");
         slider.init();
-        assets.update();
+       // assets.update();
         beacon.init();
         keyControl.register("body");
+        // discover
+        discover.init();
     }, config.timeout)
 });
 

@@ -285,4 +285,22 @@ section .inner {
     animation: ping 2s infinite 0.5s;
 }
 
+.gallery-item img {
+    width: 250px;
+    height: 250px;
+}
+
+
+/*discover styles*/
+.hovdiv {
+    display: inline-block;
+    width: 50px;
+    position: absolute;
+    height: 968px;
+}
+
+.snip {
+    display: none;
+    position: absolute;
+}
 

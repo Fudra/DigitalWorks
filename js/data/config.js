@@ -13,7 +13,7 @@ var config = {
      * is used in the gallery and the background info
      * see Bootstrap documentation.
      */
-    colBootstrapClass : "col-md-4",
+    //colBootstrapClass : "col-md-4",
 
     /**
      *

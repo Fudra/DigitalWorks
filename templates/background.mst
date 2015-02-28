@@ -3,7 +3,7 @@
         {{#artists}}
             {{#selected}}
                 {{#background}}
-                    <div class="gallery-item">
+                    <div class="gallery-item col-md-4">
                         <a href="{{imgfolder}}/{{short}}/{{src}}" class='lightview' data-lightview-group="background" data-
                            data-lightview-title="{{caption}}">
                             <img src="{{imgfolder}}/{{short}}/{{thumb}}"

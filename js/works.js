@@ -709,4 +709,7 @@ $(window).resize(function () {
         slider.animateHorizontal(0, config.animDividerOnResize);
     else
         slider.animateHorizontal(assets.screen.width - slider.slider.width / 2, config.animDividerOnResize);
+
+    //resize Gallery
+    discover.resize();
 });

@@ -3,13 +3,19 @@
  */
 
 var discover = (function () {
-
-    var progress = new Array(30);
+    var parentWidth = 1024;
+    var scaleFactor;
+    var elemCnt = 30;
+    var elemWidth = 50;
+    var progress = new Array(elemCnt);
 
     function init() {
+        var container = document.createElement("div");
+        container.className = "discover-container";
+        $('.discover').append(container);
         for (var i = 1; i <= progress.length; i++) {
             var div = document.createElement('div');
-            div.style.left = (i - 1) * 50 + 'px';
+            div.style.left = (i - 1) * elemWidth + 'px';
             div.className = 'hovdiv';
             div.id = i;
 
@@ -25,15 +31,52 @@ var discover = (function () {
             img.className = 'snip';
 
             if (i > 1) {
-                img.style.left = '-50px';
+                img.style.left = '-' + elemWidth + 'px';
             }
 
-            $('.discover').append(div);
+            $('.discover-container').append(div);
             $('.hovdiv').last().prepend(img);
 
 
         }
         addhovermotion();
+        // inner
+        align();
+        scaleFactor = parentWidth / (elemCnt * elemWidth);
+      //  scaleImg(scaleFactor);
+      //  scaleSnip(w / (elemCnt * elemWidth));
+        resize();
+
+    }
+
+    function resize() {
+        var width = $(".discover-container").parent().css("width");
+       // var parentWidth = $(".discover-container").parent().parent().css("width");
+        var resizeFactor = parseInt(width) /parentWidth; //parseInt(parentWidth);
+        console.log(width,resizeFactor);
+        align();
+
+        scaleImg(scaleFactor*resizeFactor);
+      //  scaleSnip(resizeFactor);
+
+
+    }
+
+    function scaleSnip(x) {
+        $(".hovdiv").css("transform", "scale(" + x + ")");
+    }
+
+    function scaleImg(x) {
+        $(".discover-container").css("transform", "scale(" + x + ")");
+    }
+
+    function align() {
+        var imgwidth = $(".discover").width();
+        console.log("screen:",assets.screen.width,imgwidth);
+        var left = (assets.screen.width - imgwidth)/2;
+        $(".discover-container").css("left",left+"px");
+
+
     }
 
 
@@ -55,7 +98,7 @@ var discover = (function () {
             if (progress[i]) {
                 progressStatus++;
                 percentage = progressStatus / progress.length * 100;
-                console.log(percentage);
+               // console.log(percentage);
                 progressBar(percentage);
             }
         }
@@ -71,7 +114,8 @@ var discover = (function () {
 
 
     return {
-        init: init
+        init: init,
+        resize: resize
     }
 
 }());

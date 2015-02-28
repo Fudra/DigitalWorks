@@ -7,5 +7,6 @@
                 </div>
             {{/prev}}
         {{/images}}
+        <script src="js/discover/discover-{{short}}.js"></script>
     {{/selected}}
 {{/artists}}

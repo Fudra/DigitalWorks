@@ -1,0 +1,112 @@
+
+/* franz */
+/*discover styles*/
+.hovdiv {
+    display: inline-block;
+    width: 34px; /*50*/
+    position: absolute;
+    height: 968px;
+}
+
+.snip {
+    display: none;
+    position: absolute;
+}
+
+.discover-container {
+    position: absolute;
+}
+
+
+/*regina*/
+
+.beacon-container {
+    height: 100px;
+}
+
+#popup-wrapper {
+    z-index: 1;
+    position: absolute;
+    height:100%;
+    width:100%;
+    /*	background: rgba(120, 120, 0, .5); */
+}
+
+#videowrapper {
+    z-index: 0;
+    height:100%;
+    /*	background: rgba(0, 120, 120, .5); */
+}
+
+.popup {
+    position: relative;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+}
+
+.popstart {top: 22%;left: 12%;}
+
+.popeins {top: 83.5%;left: 17.2%;}
+
+.popzwei {top: 79%;left: 71%;}
+
+.popdrei {top: 4.5%;left: 77.3%;}
+
+.popvier {top: 40%;left: 4%;}
+
+.popfuenf {top: 68%;left: 13%;}
+
+.popup-photo {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup-photo img {
+    height: 100%;
+}
+
+video {
+    height: 100%;
+    width: auto;
+}
+
+
+/* ^^^^ */
+/* ,.., */
+
+/*
+                 ,
+                / \
+               {   }
+               p   !
+               ; : ;
+               | : |
+               | : |
+               l ; l
+               l ; l
+               I ; I
+               I ; I
+               I ; I
+               I ; I
+               d | b
+               H | H
+               H | H
+               H I H
+       ,;,     H I H     ,;,
+      ;H@H;    ;_H_;,   ;H@H;
+      `\Y/d_,;|4H@HK|;,_b\Y/'
+       '\;MMMMM$@@@$MMMMM;/'
+         "~~~*;!8@8!;*~~~"
+               ;888;
+               ;888;
+               ;888;
+               ;888;
+               d8@8b
+               O8@8O
+               T808T
+                `~`
+*/

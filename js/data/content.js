@@ -245,7 +245,7 @@ var content = {
                     caption: 'Fotografieren bei Photon Laser'
                 },
                 {
-                    src: 'Regina Interview.mp4',
+                    src: 'Regina_Interview.mp4',
                     thumb: 'Interview_thumb.jpg',
                     caption: 'Interview (Video)'
                 },

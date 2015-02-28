@@ -13,6 +13,9 @@ var assets = (function () {
         height: 0
     };
 
+    /**
+     *
+     */
     function readUrl() {
         //  Artist id
         global.id = (QueryString.id != undefined) ? QueryString.id : 0;
@@ -33,6 +36,10 @@ var assets = (function () {
 
     }
 
+    /**
+     *
+     * @param obj
+     */
     function fullscreen(obj) {
         var $window = $(window);
         screen.width = $window.width();
@@ -44,6 +51,9 @@ var assets = (function () {
         $(obj).css("height", screen.height + "px");
     }
 
+    /**
+     *
+     */
     function updateUrl() {
         window.location.hash = global.currentSection;
         var params = '&beacon=false';
@@ -57,12 +67,25 @@ var assets = (function () {
         });
     }
 
+    /**
+     *
+     */
+    function insertNbspIntoCaption() {
+        var $caption = $(".caption");
+        $caption.each(function(index) {
+            var html = $caption.get(index).innerHTML;
+            if(html == " " || html == "")
+                $caption.get(index).innerHTML = "&nbsp;";
+        });
+    }
+
     return {
         readUrl: readUrl,
         updateUrl: updateUrl,
         fullscreen: fullscreen,
         screenCenter: screenCenter,
-        screen: screen
+        screen: screen,
+        insertNbspIntoCaption: insertNbspIntoCaption
     }
 
 }());
@@ -685,12 +708,14 @@ $(function () {
 
         assets.fullscreen(".wrapper");
         assets.fullscreen(".mask");
+        assets.insertNbspIntoCaption();
         slider.init();
        // assets.update();
         beacon.init();
         keyControl.register("body");
         // discover
         discover.init();
+
     }, config.timeout)
 });
 
